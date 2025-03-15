@@ -10,16 +10,18 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
 
     <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
-    <div class="flex flex-col justify-center min-h-screen antialiased bg-gray-100">
-        {{ $slot }}
-    </div>
+<body class="container bg-white-500 mx-auto">
+@include('partials.navbar')
+<main class="flex flex-col justify-center min-h-screen antialiased">
+    {{ $slot }}
+</main>
 </body>
 
 </html>
