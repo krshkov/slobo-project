@@ -22,6 +22,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'Stole Krshkov',
+            'email' => 'krshkovstole@gmail.com',
+            'phone' => '+38977627320',
+            'password' => bcrypt('sekakov'),
+            'role' => 'client',
+        ]);
+
         User::factory(10)->create();
         Category::factory(10)->has(SubCategory::factory()->count(random_int(1, 4)))->create();
         Task::factory(20)->create();
