@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 Route::permanentRedirect('/', '/home');
 
 Route::middleware('auth')->group(function () {
     Route::view('/home', 'home')->name('home');
-    Route::resource('categories', 'CategoryController');
-    Route::resource('subcategories', 'SubCategoryController');
+    Route::resource('categories', CategoryController::class);
+    Route::resource('subcategories', SubCategoryController::class);
 });
