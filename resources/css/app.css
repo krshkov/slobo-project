@@ -8,3 +8,13 @@
 
 @import "./config/_theme.css";
 @import "./config/_typography.css";
+
+@layer base {
+    input[type="checkbox"]:checked {
+        @apply accent-primary
+    }
+
+    input[type="radio"]:checked {
+        @apply accent-primary
+    }
+}

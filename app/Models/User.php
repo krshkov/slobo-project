@@ -21,6 +21,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'role',
+        'industry',
+        'speciality',
         'password',
     ];
 
@@ -55,5 +59,10 @@ class User extends Authenticatable
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function is_handyman(): bool
+    {
+        return $this->role === 'handyman';
     }
 }

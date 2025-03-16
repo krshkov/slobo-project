@@ -20,6 +20,8 @@
 <body class="container bg-white-500 mx-auto">
 @include('partials.navbar')
 <main class="flex flex-col justify-center min-h-screen antialiased">
+    <x-alerts.errors/>
+    <x-alerts.status/>
     {{ $slot }}
 </main>
 </body>
