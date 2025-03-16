@@ -18,6 +18,12 @@
             <li>
                 <a href="#" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">Advise</a>
             </li>
+            @if(auth()->check() && auth()->user()->is_handyman())
+                <li>
+                    <a href="{{ route('dashboard.handyman') }}"
+                       class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">Dashboard</a>
+                </li>
+            @endif
             @if(!auth()->check())
                 <li>
                     <a href="/register"
@@ -53,6 +59,14 @@
                     <h3>Advise</h3>
                 </a>
             </li>
+            @if(auth()->check() && auth()->user()->is_handyman())
+                <li>
+                    <a href="{{ route('dashboard.handyman') }}"
+                       class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">
+                        <h3>Handyman</h3>
+                    </a>
+                </li>
+            @endif
             @if(!auth()->check())
                 <li>
                     <a href="/register"
