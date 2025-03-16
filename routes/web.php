@@ -10,7 +10,17 @@ use Illuminate\Support\Facades\Route;
 Route::permanentRedirect('/', '/home');
 
 Route::middleware('auth')->group(function () {
-    Route::view('/home', 'home')->name('home');
+    Route::get('/home', function () {
+        if (auth()->user()?->is_handyman()) {
+            return redirect(route('home.handyman'));
+        } else {
+            return redirect(route('home.client'));
+        }
+    })->name('home');
+
+    Route::view('/home/handyman', 'home_handyman')->name('home.handyman');
+    Route::view('/home/client', 'home_client')->name('home.client');
+
     Route::view('/welcome', 'welcome')->name('welcome');
 
     Route::view('/choose/industry', 'profile.choose_industry')->name('choose.industry');
@@ -57,5 +67,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/testing', function () {
-   dd(auth()->check() && auth()->user()?->is_handyman());
+    dd(auth()->check() && auth()->user()?->is_handyman());
 });
