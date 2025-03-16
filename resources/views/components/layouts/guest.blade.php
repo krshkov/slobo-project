@@ -24,6 +24,7 @@
     <x-alerts.status/>
     {{ $slot }}
 </main>
+@include('partials.footer')
 </body>
 
 </html>
