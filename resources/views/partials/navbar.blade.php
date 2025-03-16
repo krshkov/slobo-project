@@ -34,7 +34,7 @@
             @else
                 <li>
                     <a id="logout-trigger"
-                       class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">
+                       class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500 cursor-pointer">
                         Logout
                     </a>
                 </li>
