@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -16,6 +19,11 @@ class UserController extends Controller
         }
 
         return redirect(route('home.client'));
+    }
+
+    public function services(): View|Application|Factory
+    {
+        return view('services')->with('craftsman', User::query()->where('role', 'handyman')->get());
     }
 
     /**
@@ -76,7 +84,7 @@ class UserController extends Controller
 
     public function choose_industry(Request $request): Application|Redirector|RedirectResponse
     {
-        $user = \App\Models\User::query()->findOrFail(auth()->id());
+        $user = User::query()->findOrFail(auth()->id());
 
         try {
             $user?->update(['industry' => $request->industry]);
@@ -89,7 +97,7 @@ class UserController extends Controller
 
     public function choose_speciality(Request $request): Application|Redirector|RedirectResponse
     {
-        $user = \App\Models\User::query()->findOrFail(auth()->id());
+        $user = User::query()->findOrFail(auth()->id());
 
         $specialities = $request->speciality;
         if (is_array($specialities)) {

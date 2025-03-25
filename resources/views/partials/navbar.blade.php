@@ -13,7 +13,7 @@
 
         <ul class="hidden md:flex gap-10">
             <li>
-                <a href="#" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">Search</a>
+                <a href="{{ route('services') }}" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">Search</a>
             </li>
             <li>
                 <a href="#" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">Advise</a>
@@ -50,7 +50,7 @@
     <div id="mobile-menu" class="hidden absolute w-full text-center py-5 mt-1 bg-white-500 opacity-85">
         <ul class="flex flex-col gap-5">
             <li>
-                <a href="#" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">
+                <a href="{{ route('services') }}" class="text-gray-400 font-medium hover:text-primary active:text-primary hover:duration-500">
                     <h3>Search</h3>
                 </a>
             </li>
