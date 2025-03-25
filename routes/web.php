@@ -12,6 +12,7 @@ Route::permanentRedirect('/', '/home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [UserController::class, 'home'])->name('home');
+    Route::get('/services', [UserController::class, 'services'])->name('services');
 
     Route::view('/home/handyman', 'home_handyman')->name('home.handyman');
     Route::view('/home/client', 'home_client')->name('home.client');
