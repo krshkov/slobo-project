@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -24,6 +25,11 @@ class UserController extends Controller
     public function services(): View|Application|Factory
     {
         return view('services')->with('craftsman', User::query()->where('role', 'handyman')->get());
+    }
+
+    public function orders(): View|Application|Factory
+    {
+        return view('orders')->with('tasks', Task::all());
     }
 
     /**
